@@ -1,0 +1,137 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Livraria Deep Blue</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+        <link rel="shortcut icon" href="https://i.imgur.com/lYKRJNl.png">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container-fluid">
+                    <div class="row">
+                        <div class="col col-lg-1 left">
+                            <img src="https://i.imgur.com/lYKRJNl.png" style="min-width:150px" class="img-fluid" alt="Livraria Deep Blue"/> 
+                        </div>
+                        <div class="col col-lg-2 left">
+                            <h1 style="margin-top:.3em;line-height:.8em; color:white;font-family: Alfa Slab One; font-style: normal; font-weight: 400; font-display: swap;font-size:75px">DEEP<br>BLUE</h1>
+                        </div>
+                        <div class="col col-lg-6 middle" style="display:flex;align-items:center;justify-content:center">
+	 							<form action="#"  th:action=@{/pesquisacliente/} method="post">
+                                	<input class="form-control" style="min-width:450px" type="text" placeholder="O que você está procurando?">
+                            	</form>
+                        </div>
+                        <div class="col col-lg-3 right">
+
+                            <form  action="#" class="col-sm-11" th:action="@{/entrar}" th:object="${usuario}" style="margin-top:18px">
+                                <div class="form-group row ">
+                                    <div class="col-sm-2" >
+                                        <label class="col-form-label">
+                                            Login
+                                        </label>
+									</div> 
+                                    <div class="col-sm-7">
+                                        <input style="font-size:95%" type="text" class="form-control" placeholder="Digite seu login"/>
+                                    
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-2" >
+                                        <label class="col-form-label">
+                                            Senha
+                                        </label>
+                                    </div> 
+                                    <div class="col-sm-7">
+                                        <input style="font-size:95%" type="password"  class="form-control" placeholder="Digite sua senha"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row" style="font-size:93%">
+                                    <div class="col-sm-4">
+                                        <input class="form-check-input" type="radio" name="isadm" [(ngModel)="document.valid" [value]="false" >
+                                        <label class="form-check-label">
+                                            Cliente
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 ">
+                                        <input class="form-check-input" type="radio" name="isadm" [(ngModel)="document.valid" [value]="true" >
+                                        <label class="form-check-label">
+                                            Adm
+                                        </label>
+                                    </div>
+                                     <div class="col-sm-1" style="padding-left:8px">
+                                        <button type="submit" class="btn btn-primary">Entrar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>    
+                </div>
+                <nav class="nav-bar">
+                    <ul>
+                        <li><a href="painel">Livros</a></li>
+                        <li><a href="">Música</a></li>
+                        <li><a href="">Games</a></li>
+                        <li><a href="">Filmes</a></li>
+                        <li><a href="">Informática</a></li>
+                    </ul>
+                </nav>
+            </div>    
+        </header>
+      
+        <article class="row" style="margin:2%; color:#0061b0">
+
+            <section class="col-sm-4">
+
+                <p></p>
+                <h5 style="margin-top:15px">O que você deseja fazer?</h5>
+                <li><a href="cadastro">Cadastrar novo livro</a></li>
+				<li><a href="painel">Listar livros</a></li>
+                
+
+            </section>
+
+            <section class="col-sm-4">
+
+				<form action="#" th:action="@{/salvar}" th:object="${livro}" method="post" id="formulario" class="form-label">
+				
+					<h3>Cadastrar novo livro</h3>
+					
+					<div style="min-width:160">
+					<label class="form-text">Título: </label><br> <input class="form-control" type="text" th:field="*{titulo}" placeholder="Digite o título"/><br>
+					<label class="form-text">Autor: </label><br> <input class="form-control" type="text" th:field="*{autor}" placeholder="Digite o nome do autor"/><br>
+					<label class="form-text">Quantidade: </label><br> <input class="form-control" type="text" th:field="*{quantidade}" placeholder="Digite a quantidade disponível"/><br>
+					<label class="form-text">Preço: </label><br> <input class="form-control" type="text" th:field="*{preco}" placeholder="Insira o preço"/><br>
+					</div>
+					<button class="btn btn-primary" type="submit">Cadastrar</button> <a href="/" class="button">Cancelar</a>
+				
+				</form>
+
+            </section>
+
+        </article>
+
+        <footer class="container-fluid">
+            <h6 style="margin-left: 2%;">
+                Os preços, condições de pagamento e valores de frete são válidos exclusivamente para as compras efetuadas em nosso site, não valendo, necessariamente, para as nossas lojas físicas.<br>
+            </h6>
+        
+            <br>
+
+            <h6 class="text-center">
+                <a href="mailto:cc16mr@gmail.com">contato@deepbluelivraria.com.br</a>
+            </h6>
+
+            <h6 class="text-center">
+
+                Livraria Deep Blue, todos os direitos reservados. Copyrights 2021
+            </h6>
+    
+        </footer>
+    </body>
+</html>

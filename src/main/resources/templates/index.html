@@ -1,0 +1,240 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Livraria Deep Blue</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
+        <link rel="shortcut icon" href="https://i.imgur.com/lYKRJNl.png">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="container-fluid">
+                    <div class="row">
+                        <div class="col col-lg-1 left">
+                            <img src="https://i.imgur.com/lYKRJNl.png" style="min-width:150px" class="img-fluid" alt="Livraria Deep Blue"/> 
+                        </div>
+                        <div class="col col-lg-2 left">
+                            <h1 style="margin-top:.3em;line-height:.8em; color:white;font-family: Alfa Slab One; font-style: normal; font-weight: 400; font-display: swap;font-size:75px">DEEP<br>BLUE</h1>
+                        </div>
+                        <div class="col col-lg-6 middle" style="display:flex;align-items:center;justify-content:center">
+	 							<form action="#"  th:action=@{/search} method="GET">
+                                	<input class="form-control" style="min-width:450px"  type="text" placeholder="O que você está procurando?">
+                            	</form>
+                        </div>
+                        <div class="col col-lg-3 right">
+
+                            <form  action="#" class="col-sm-11" th:action="@{/entrar}" th:object="${usuario}" style="margin-top:18px">
+                                <div class="form-group row ">
+                                    <div class="col-sm-2" >
+                                        <label class="col-form-label">
+                                            Login
+                                        </label>
+									</div> 
+                                    <div class="col-sm-7">
+                                        <input style="font-size:95%" type="text" class="form-control" placeholder="Digite seu login"/>
+                                    
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-2" >
+                                        <label class="col-form-label">
+                                            Senha
+                                        </label>
+                                    </div> 
+                                    <div class="col-sm-7">
+                                        <input style="font-size:95%" type="password"  class="form-control" placeholder="Digite sua senha"/>
+                                    </div>
+                                </div>
+                                <div class="form-group row" style="font-size:93%">
+                                    <div class="col-sm-4">
+                                        <input class="form-check-input" type="radio" name="isadm" [(ngModel)="document.valid" [value]="false" >
+                                        <label class="form-check-label">
+                                            Cliente
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-5 ">
+                                        <input class="form-check-input" type="radio" name="isadm" [(ngModel)="document.valid" [value]="true" >
+                                        <label class="form-check-label">
+                                            Adm
+                                        </label>
+                                    </div>
+                                     <div class="col-sm-1" style="padding-left:8px">
+                                        <button type="submit" class="btn btn-primary">Entrar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>    
+                </div>
+                <nav class="nav-bar">
+                    <ul>
+                        <li><a href="painel">Livros</a></li>
+                        <li><a href="">Música</a></li>
+                        <li><a href="">Games</a></li>
+                        <li><a href="">Filmes</a></li>
+                        <li><a href="">Informática</a></li>
+                    </ul>
+                </nav>
+            </div>    
+        </header>
+        <article>
+            <section class="section-1 mt-5 container">
+                <div class="parent-sec-1"> 
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card card-body text-center card-custom">
+                                <i class="material-icons"></i>
+                                <h4>
+                                    the quick brown
+                                </h4>
+                                <p>
+									Lorem ipsum dolor sit amet
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-body text-center card-custom" style="background-size:100%; opacity:.75">
+                                <h4>
+                                    fox jumps over
+                                </h4>
+                                <p>
+									Lorem ipsum dolor sit amet
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-body text-center card-custom">
+                                <h4>
+                                    the lazy dog
+                                </h4>
+                                <p>
+									Lorem ipsum dolor sit amet
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </section>
+            <section>
+                <h4 class="text-sm-start section-1 mt-5 container">Os mais vendidos da semana:</h4>
+                <div class='section-2 demo-container'>
+                    <div class='carousel'>
+                      <input checked='checked' class='carousel__activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
+                      <input class='carousel__activator' id='carousel-slide-activator-2' name='carousel' type='radio'>
+                      <input class='carousel__activator' id='carousel-slide-activator-3' name='carousel' type='radio'>
+                      <div class='carousel__controls'>
+                        <label class='carousel__control carousel__control--forward' for='carousel-slide-activator-2'>
+                          👉
+                        </label>
+                      </div>
+                      <div class='carousel__controls'>
+                        <label class='carousel__control carousel__control--backward' for='carousel-slide-activator-1'>
+                          👈
+                        </label>
+                        <label class='carousel__control carousel__control--forward' for='carousel-slide-activator-3'>
+                          👉
+                        </label>
+                      </div>
+                      <div class='carousel__controls'>
+                        <label class='carousel__control carousel__control--backward' for='carousel-slide-activator-2'>
+                          👈
+                        </label>
+                      </div>
+                      <div class='carousel__screen'>
+                        <div class='carousel__track'>
+                          
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/Contos-Imagina%C3%A7%C3%A3o-Mist%C3%A9rio-Edgard-Allan/dp/8564406357/ref=as_li_ss_il?ie=UTF8&qid=1547986041&sr=8-6&keywords=edgar+allan+poe&linkCode=li3&tag=literaturapol-20&linkId=40a45bd70d875158f272b73a4d99db7b&language=pt_BR">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/61-WpzPX1SL._SX367_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                          
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/House-Leaves-Mark-Z-Danielewski/dp/0375703764/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=house+of+leaves&qid=1622163493&sr=8-1">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/41jpemUkbEL._SX369_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/iluminado-Stephen-King/dp/8581050484/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=stephen+king&qid=1622176077&s=books&sr=1-2">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/51dU+s4FLDL._SX346_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/outra-volta-do-parafuso/dp/8563560247/ref=asc_df_8563560247/?tag=googleshopp00-20&linkCode=df0&hvadid=379738402701&hvpos=&hvnetw=g&hvrand=14871907901801818916&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001538&hvtargid=pla-811743524778&psc=1">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/51lFih-1I4L._SX323_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/Contos-Imagina%C3%A7%C3%A3o-Mist%C3%A9rio-Edgard-Allan/dp/8564406357/ref=as_li_ss_il?ie=UTF8&qid=1547986041&sr=8-6&keywords=edgar+allan+poe&linkCode=li3&tag=literaturapol-20&linkId=40a45bd70d875158f272b73a4d99db7b&language=pt_BR">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/61-WpzPX1SL._SX367_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/Contos-Imagina%C3%A7%C3%A3o-Mist%C3%A9rio-Edgard-Allan/dp/8564406357/ref=as_li_ss_il?ie=UTF8&qid=1547986041&sr=8-6&keywords=edgar+allan+poe&linkCode=li3&tag=literaturapol-20&linkId=40a45bd70d875158f272b73a4d99db7b&language=pt_BR">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/61-WpzPX1SL._SX367_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                           <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/Contos-Imagina%C3%A7%C3%A3o-Mist%C3%A9rio-Edgard-Allan/dp/8564406357/ref=as_li_ss_il?ie=UTF8&qid=1547986041&sr=8-6&keywords=edgar+allan+poe&linkCode=li3&tag=literaturapol-20&linkId=40a45bd70d875158f272b73a4d99db7b&language=pt_BR">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/61-WpzPX1SL._SX367_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                          
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/House-Leaves-Mark-Z-Danielewski/dp/0375703764/ref=sr_1_1?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=house+of+leaves&qid=1622163493&sr=8-1">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/41jpemUkbEL._SX369_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class='carousel__item carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+                                <a href="https://www.amazon.com.br/Contos-Imagina%C3%A7%C3%A3o-Mist%C3%A9rio-Edgard-Allan/dp/8564406357/ref=as_li_ss_il?ie=UTF8&qid=1547986041&sr=8-6&keywords=edgar+allan+poe&linkCode=li3&tag=literaturapol-20&linkId=40a45bd70d875158f272b73a4d99db7b&language=pt_BR">
+                                    <div class='demo-content' style="padding:100px">
+                                        <img src="https://images-na.ssl-images-amazon.com/images/I/61-WpzPX1SL._SX367_BO1,204,203,200_.jpg" class="img-fluid" alt="">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <h4 class="text-sm-start section-1 mt-5 container">Os mais buscados: Ficção</h4>
+            </section>
+        </article>
+        <footer class="container-fluid">
+           <h6 style="margin-left: 2%;">
+                Os preços, condições de pagamento e valores de frete são válidos exclusivamente para as compras efetuadas em nosso site, não valendo, necessariamente, para as nossas lojas físicas.<br>
+           </h6><br>
+           <h6 class="text-center">
+               <a href="mailto:cc16mr@gmail.com">contato@deepbluelivraria.com.br</a>
+            </h6>
+            <h6 class="text-center">
+                Livraria Deep Blue, todos os direitos reservados. Copyrights 2021
+            </h6>
+        </footer>
+    </body>
+</html>

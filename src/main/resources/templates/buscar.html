@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Livraria Deep Blue</title>
+
+        <link rel="shortcut icon" href="https://i.imgur.com/lYKRJNl.png"/>
+        <link rel="stylesheet" href="../static/css/bootstrap.css"/>
+        <link rel="stylesheet" href="../static/css/estilo.css"/>
+      
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+       	<link rel="stylesheet" href="https://gitcdn.link/repo/cc16mr/styles/main/livraria-estilo.css">
+       
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+ 
+    </head>
+
+    <body>
+
+        <header>
+
+            <div class="container-fluid">
+                
+                    <div class="row">
+                    
+                        <div class="col col-lg-1 left">
+                            <img src="https://i.imgur.com/lYKRJNl.png" style="min-width:150px" class="img-fluid" alt="Livraria Deep Blue"/> 
+                        </div>
+                    
+                        <div class="col col-lg-2 left">
+							<a href="redirect:/">
+                            <h1 style="margin-top:.3em;line-height:.8em; color:white;font-family: Alfa Slab One; font-style: normal; font-weight: 400; font-display: swap;font-size:75px">DEEP<br>BLUE</h1>
+							</a>
+                        </div>
+                                                        
+                                                
+                        <div class="col col-sm-6 middle" style="display:flex;align-items:center;justify-content:center">
+                        
+                          <form class="form-inline" th:action="@{/search}" method="get">
+                        
+                                <input type="search" name="pesquisa" class="form-control" style="min-width:400px" placeholder="O que você procura?" required>
+                                <input type="submit" value="Buscar" class="btn btn-primary">
+                                        
+                           </form>
+                        
+                        </div>
+                        
+                        <div class="col col-lg-3 right">
+
+                            <form  class="col-sm-11" style="margin-top:18px">
+
+                                <div class="form-group row ">
+
+                                    <div class="col-sm-2" >
+
+                                        <label class="col-form-label">
+                                            Login
+                                        </label>
+
+									</div> 
+
+                                    <div class="col-sm-7">
+
+                                        <input style="font-size:95%" type="text" class="form-control" placeholder="Digite seu login">
+                                    
+                                    </div>
+                    
+                                </div>
+                    
+                                <div class="form-group row">
+
+                                    <div class="col-sm-2" >
+
+                                        <label class="col-form-label">
+                                            Senha
+                                        </label>
+
+                                    </div> 
+
+                                    <div class="col-sm-7">
+
+                                       <input style="font-size:95%" type="password" class="form-control" placeholder="Digite sua senha">
+                                    
+                                    </div>
+                    
+                                </div>
+
+                                <div class="form-group row" style="font-size:93%">
+
+                                    <div class="col-sm-4">
+                                    
+                                        <input class="form-check-input" type="radio" value="cliente" onclick='window.location.href="/cliente"'>
+                                        <label class="form-check-label">
+                                            Cliente
+                                        </label>
+
+                                    </div>
+                                    
+                                    
+
+                                    <div class="col-sm-5 ">
+
+                                        <input class="form-check-input" type="radio" value="administrador" onclick='window.location.href="/administrador"'>
+                                        <label class="form-check-label">
+                                            Administrador
+                                        </label>
+
+                                    </div>
+                                
+                                </div>
+                    
+                                <div class="form-group row">
+
+                                    <div class="col-sm-6">
+                                    </div>    
+
+                                    <div class="col-sm-1" style="padding-left:8px">
+
+                                        <button type="null" class="btn btn-primary">Entrar</button>
+
+                                    </div>
+
+                                </form>
+                    
+                            </div>
+
+                        </div>
+
+                    </div>    
+
+                </div>
+
+                <nav class="nav-bar">
+
+                    <ul>
+                        <li><a href="">Livros</a></li>
+                        <li><a href="">Música</a></li>
+                        <li><a href="">Games</a></li>
+                        <li><a href="">Filmes</a></li>
+                        <li><a href="">Informática</a></li>
+                    </ul>
+
+                </nav>
+
+            </div>    
+            
+        </header>
+        <article>
+			<div>
+			
+				<h2>Resultados de pesquisa para '[[${pesquisa}]]'</h2>
+				<br/>
+			</div>
+			<div class="row">
+				<div class="col" th:each="livro : ${searchResult}">
+					<div>
+						<a th:href="@{'/p/' + ${livro.autor}}" th:title="${livro.titulo}">
+						<!-- 	<img th:src="@{${livro.imagem}}" height="150"/>
+							<br/>
+							<b>[[${product.shortName}]]</b>  -->
+					
+						</a>
+					
+					</div>
+					
+					
+
+			</div>
+
+
+
+       
+        </article>
+
+        <footer class="container-fluid">
+           
+            <h6 style="margin-left: 2%;">
+
+                Os preços, condições de pagamento e valores de frete são válidos exclusivamente para as compras efetuadas em nosso site, não valendo, necessariamente, para as nossas lojas físicas.<br>
+            
+            </h6>
+        
+            <br>
+
+            <h6 class="text-center">
+
+                <a href="mailto:cc16mr@gmail.com">contato@deepbluelivraria.com.br</a>
+
+            </h6>
+
+            <h6 class="text-center">
+
+                Livraria Deep Blue, todos os direitos reservados. Copyrights 2021
+
+            </h6>
+    
+        </footer>
+
+    </body>
+
+</html>
